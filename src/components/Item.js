@@ -5,7 +5,7 @@ const Item = ({ item }) => {
   return (
     <div>
       <p>Type: {item.type}</p>
-      <p>Content: {item.content}</p>
+      {item.type === 'image' && <img src={item.content} alt="item" style={{width: item.size.width, height: item.size.height}} />}
       <p>Position: x:{item.position.x}, y:{item.position.y} </p>
       <p>Rotation: {item.rotation} </p>
       <p>
