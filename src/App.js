@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+// import components
+import MoodBoardContainer from "./components/MoodBoardContainer";
+import UploadButton from "./components/UploadButton";
+
+
+
 
 function App() {
+const URL = process.env.REACT_APP_API_URL;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<><UploadButton URL={URL} /><MoodBoardContainer URL={URL}/></>} />
+        <Route path="/upload" element={<UploadButton URL={URL} />} />
+        <Route path="/moodboards" element={<MoodBoardContainer URL={URL}/>} />
+      </Routes>
     </div>
   );
 }
