@@ -13,7 +13,7 @@ const UploadButton = (props) => {
 
     console.log("formData is", formData);
 
-    // Make a POST request to your API to upload the file
+    // Make a POST request to  API to upload the file
     axios
       .post(`${props.URL}image-uploads`, formData)
       .then((res) => {
@@ -47,6 +47,15 @@ const UploadButton = (props) => {
           .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
+
+    // // Clear the file input
+    // event.target.value = null;
+
+    // // Clear the file name input
+    // setFileName("");
+
+    // // Refresh the page
+    // window.location.reload();
   };
 
   useEffect(() => {
